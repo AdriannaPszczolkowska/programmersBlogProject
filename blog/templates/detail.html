@@ -1,3 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<dir class = "conteiner">
+<b>
 <h2> {{post.title}} </h2>
-<h6>{{post.createDate}} </h6>
-<p> {{post.text }} </p>
+</b>
+<h6>{{post.createDate |date:"j F Y"}} </h6>
+<hr>
+<p style ="text-aligin: justify"> {{post.text }} </p>
+
+{%if post.image%}
+<img src = "{{post.image.url}}" alt="" >
+{%endif%}
+<br>
+<a href= "{% url "home" %}" class="btn btn-info"> Go back </a>
+</dir>
+{% endblock content%}
